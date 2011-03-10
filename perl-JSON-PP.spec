@@ -1,0 +1,61 @@
+#
+# Conditional build:
+%bcond_without	tests		# do not perform "make test"
+#
+%define		pdir	JSON
+%define		pnam	PP
+%include	/usr/lib/rpm/macros.perl
+Summary:	JSON::PP - JSON::XS compatible pure-Perl module
+Name:		perl-JSON-PP
+Version:	2.27105
+Release:	1
+# same as perl
+License:	GPL v1+ or Artistic
+Group:		Development/Languages/Perl
+Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	c4ff8d984a4b55fa1ab5ca0ba4dbe54f
+URL:		http://search.cpan.org/dist/JSON-PP/
+BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+This module is JSON::XS compatible pure Perl module. (Perl 5.8 or
+later is recommended)
+
+JSON::XS is the fastest and most proper JSON module on CPAN. It is
+written by Marc Lehmann in C, so must be compiled and installed in the
+used environment.
+
+JSON::PP is a pure-Perl module and has compatibility to JSON::XS.
+
+%prep
+%setup -q -n %{pdir}-%{pnam}-%{version}
+
+%build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
+
+%{?with_tests:%{__make} test}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} pure_install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc Changes README
+%attr(755,root,root) %{_bindir}/json_pp
+%dir %{perl_vendorlib}/JSON
+%{perl_vendorlib}/JSON/PP.pm
+%dir %{perl_vendorlib}/JSON/PP
+%{perl_vendorlib}/JSON/PP/Boolean.pm
+%{_mandir}/man1/json_pp.1p*
+%{_mandir}/man3/*.3pm*
