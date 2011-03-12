@@ -6,6 +6,7 @@
 %define		pnam	PP
 %include	/usr/lib/rpm/macros.perl
 Summary:	JSON::PP - JSON::XS compatible pure-Perl module
+Summary(pl.UTF-8):	JSON::PP - czysto perlowy moduł kompatybilny z JSON::XS
 Name:		perl-JSON-PP
 Version:	2.27105
 Release:	2
@@ -30,6 +31,16 @@ written by Marc Lehmann in C, so must be compiled and installed in the
 used environment.
 
 JSON::PP is a pure-Perl module and has compatibility to JSON::XS.
+
+%description -l pl.UTF-8
+JSON::PP jest modułem kompatybilnym z JSON::XS, napisanym w czystym
+Perlu (zalecany jest Perl 5.8 lub nowszy).
+
+JSON::XS jest najszybszym i najsensowniejszym modułem JSON na CPAN-ie.
+Jest napisany przez Marca Lehmanna w C, więc mu być skompilowany i
+zainstalowany przed użyciem.
+
+JSON::PP jest modułem czysto perlowym, kompatybilnym z JSON::XS.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -59,4 +70,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorlib}/JSON/PP
 %{perl_vendorlib}/JSON/PP/Boolean.pm
 %{_mandir}/man1/json_pp.1p*
-%{_mandir}/man3/*.3pm*
+%{_mandir}/man3/JSON::PP*.3pm*
