@@ -18,7 +18,7 @@ Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/%{pdir}-%{pnam}
 URL:		http://search.cpan.org/dist/JSON-PP/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-Conflicts:	perl-JSON < 2.00
+Conflicts:	perl-JSON
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
