@@ -8,13 +8,13 @@
 Summary:	JSON::PP - JSON::XS compatible pure-Perl module
 Summary(pl.UTF-8):	JSON::PP - czysto perlowy moduł kompatybilny z JSON::XS
 Name:		perl-JSON-PP
-Version:	2.27105
-Release:	2
+Version:	2.27200
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/M/MA/MAKAMAKA/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c4ff8d984a4b55fa1ab5ca0ba4dbe54f
+# Source0-md5:	1894d25f577ebbdb5af4b0c4f53a9cba
 URL:		http://search.cpan.org/dist/JSON-PP/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
