@@ -8,14 +8,13 @@
 Summary:	JSON::PP - JSON::XS compatible pure-Perl module
 Summary(pl.UTF-8):	JSON::PP - czysto perlowy moduł kompatybilny z JSON::XS
 Name:		perl-JSON-PP
-%define	srcver	2.94
-Version:	%{srcver}000
+Version:	2.97001
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/JSON/%{pdir}-%{pnam}-%{srcver}.tar.gz
-# Source0-md5:	d83f62bb6f059fc09ff084ece9dfc83a
+Source0:	http://www.cpan.org/modules/by-module/JSON/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	2cb0866abed53bad69398b6260cb8a3a
 URL:		http://search.cpan.org/dist/JSON-PP/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -44,7 +43,7 @@ zainstalowany przed użyciem.
 JSON::PP jest modułem czysto perlowym, kompatybilnym z JSON::XS.
 
 %prep
-%setup -q -n %{pdir}-%{pnam}-%{srcver}
+%setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
 %{__perl} Makefile.PL \
