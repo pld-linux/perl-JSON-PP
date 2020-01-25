@@ -4,7 +4,6 @@
 #
 %define		pdir	JSON
 %define		pnam	PP
-%include	/usr/lib/rpm/macros.perl
 Summary:	JSON::PP - JSON::XS compatible pure-Perl module
 Summary(pl.UTF-8):	JSON::PP - czysto perlowy moduł kompatybilny z JSON::XS
 Name:		perl-JSON-PP
