@@ -1,21 +1,25 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	JSON
 %define		pnam	PP
 Summary:	JSON::PP - JSON::XS compatible pure-Perl module
 Summary(pl.UTF-8):	JSON::PP - czysto perlowy moduł kompatybilny z JSON::XS
 Name:		perl-JSON-PP
-Version:	2.97001
+Version:	4.16
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/JSON/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	2cb0866abed53bad69398b6260cb8a3a
-URL:		https://metacpan.org/release/JSON-PP
+Source0:	https://www.cpan.org/modules/by-module/JSON/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	4ec8d53913f529d3fe172559cb5a131e
+URL:		https://metacpan.org/dist/JSON-PP
 BuildRequires:	perl-devel >= 1:5.8.0
+%if %{with tests}
+BuildRequires:	perl-Scalar-List-Utils >= 1.08
+BuildRequires:	perl-Test-Simple
+%endif
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
 Conflicts:	perl-JSON < 2.51
