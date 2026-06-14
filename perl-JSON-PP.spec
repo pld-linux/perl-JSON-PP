@@ -7,18 +7,19 @@
 Summary:	JSON::PP - JSON::XS compatible pure-Perl module
 Summary(pl.UTF-8):	JSON::PP - czysto perlowy moduł kompatybilny z JSON::XS
 Name:		perl-JSON-PP
-Version:	4.16
+Version:	4.18
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	https://www.cpan.org/modules/by-module/JSON/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	4ec8d53913f529d3fe172559cb5a131e
+Source0:	https://www.cpan.org/modules/by-module/JSON/ISHIGAKI/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	cdbd1b14a18eb74ab66649abc9ed5d8f
 URL:		https://metacpan.org/dist/JSON-PP
+BuildRequires:	perl-ExtUtils-MakeMaker
 BuildRequires:	perl-devel >= 1:5.8.0
 %if %{with tests}
 BuildRequires:	perl-Scalar-List-Utils >= 1.08
-BuildRequires:	perl-Test-Simple
+BuildRequires:	perl-Test-Simple >= 0.88
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
@@ -27,8 +28,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This module is JSON::XS compatible pure Perl module. (Perl 5.8 or
-later is recommended)
+This module is JSON::XS compatible pure Perl module.
 
 JSON::XS is the fastest and most proper JSON module on CPAN. It is
 written by Marc Lehmann in C, so must be compiled and installed in the
@@ -38,7 +38,7 @@ JSON::PP is a pure-Perl module and has compatibility to JSON::XS.
 
 %description -l pl.UTF-8
 JSON::PP jest modułem kompatybilnym z JSON::XS, napisanym w czystym
-Perlu (zalecany jest Perl 5.8 lub nowszy).
+Perlu.
 
 JSON::XS jest najszybszym i najsensowniejszym modułem JSON na CPAN-ie.
 Jest napisany przez Marca Lehmanna w C, więc mu być skompilowany i
